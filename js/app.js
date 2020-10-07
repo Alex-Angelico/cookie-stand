@@ -1,7 +1,7 @@
 'use strict';
 
 var salesTable = document.getElementById('salesTable');
-var storeHours = ['5am', '8pm'];
+var storeHours = ['7am', '1am'];
 var operatingHours = getHours(storeHours);
 
 function getHours(hours) {
@@ -37,7 +37,9 @@ function getHours(hours) {
         }
       }
     } else if (openDayHalf === 'pm') {
-      if ((firstHour + i) === 12) {
+      if ((firstHour + i) <= 11) {
+        operatingHour = `${firstHour + i}:00pm`;
+      } else if ((firstHour + i) === 12) {
         operatingHour = `${firstHour + i}:00pm`;
       } else if ((firstHour + i) > 12 && (firstHour + i) <= 23) {
         operatingHour = `${(firstHour + i) - 12}:00pm`;
