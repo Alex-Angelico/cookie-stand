@@ -1,0 +1,116 @@
+body {
+  background-color: pink;
+  z-index: 10;
+  margin: 0px auto 0px auto;
+  position: relative;
+  max-width: 50%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+}
+
+header {
+  position: fixed;
+  text-align: center;
+  background-color: seashell;
+  width: 960px;
+  left: 25%;
+}
+
+#highlight {
+  color: blue;
+}
+
+nav ul{
+  padding: 20px;
+  position: fixed;
+  text-align: center;
+  background-color: mistyrose;
+  width: 920px;
+  /* width: 47.9%; */
+  top: 63px;
+  left: 25%;
+  border-radius: 0px 0px 20px 20px;
+}
+
+nav li {
+  /* margin-top: 25px; */
+  width: 150px;
+  /* height: 70px; */
+  display:
+    inline-block; 
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+main {
+  padding-top: 140px;
+}
+
+#logo {
+  position: fixed;
+  z-index: 0;
+  left: 30%;
+  top: 35%;
+  opacity: 40%;
+}
+
+#cookie {
+  z-index: 10;
+  float: left;
+  margin-right: 15px;
+  /* margin-bottom: 5px; */
+  border: 4px solid white;
+  border-radius: 3px;
+}
+
+article {
+  max-width: 100%;
+}
+
+#fish {
+  float: right;
+  margin-left: 15px;
+  border: 4px solid white;
+  border-radius: 3px;
+}
+
+#break {
+  text-align: center;
+  background-color: skyblue;
+  padding: 10px 0px 10px 0px;
+  border-radius: 10px;
+}
+
+#family {
+  border: 4px solid white;
+  border-radius: 3px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  object-position: center;
+}
+
+table {
+  background-color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+  color: greenyellow;
+}
+
+td {
+  background-color: gray;
+  text-align: center;
+}
+
+td:hover {
+  background-color: rgb(185, 182, 182);
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  background-color: seashell;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 20px 20px 0px 0px;
+  width: 960px;
+  left: 25%;
+}
