@@ -16,7 +16,7 @@ header {
   left: 25%;
 }
 
-#highlight {
+.highlight {
   color: blue;
 }
 
@@ -33,9 +33,7 @@ nav ul{
 }
 
 nav li {
-  /* margin-top: 25px; */
   width: 150px;
-  /* height: 70px; */
   display:
     inline-block; 
     margin-left: 100px;
@@ -44,6 +42,10 @@ nav li {
 
 main {
   padding-top: 140px;
+}
+
+main>h2 {
+  text-align: center;
 }
 
 #logo {
@@ -67,26 +69,92 @@ article {
   max-width: 100%;
 }
 
-#fish {
-  float: right;
-  margin-left: 15px;
+#locations {
+  margin-bottom: 20px;
+}
+
+#locations>article {
+  max-width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+#break1 {
+  display: inline-block;
+  text-align: center;
+  object-position: center;
+  background-color: skyblue;
+  border-radius: 10px;
+}
+
+#break1 img {
+  margin: 10px;
+}
+
+#tshirt {
+  z-index: 10;
+  display: block;
+  margin: 0px 15px 5px 0px;
   border: 4px solid white;
   border-radius: 3px;
 }
 
-#break {
+#cutter {
+  z-index: 10;
+  display: block;
+  margin: 5px 15px 0px 0px;
+  margin-right: 15px;
+  border: 4px solid white;
+  border-radius: 3px;
+}
+
+#locations h2, h4 {
+  display: inline-block;
+  text-align: center;
+}
+
+#locations_list {
+  list-style-type: none;
+  max-width: 90%;
+  display:
+    inline-block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.location_box p {
+  width: 400px;
+  line-height: 20%;
+}
+
+#break2 {
   text-align: center;
   background-color: skyblue;
   padding: 10px 0px 10px 0px;
   border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #family {
   border: 4px solid white;
   border-radius: 3px;
-  /* margin-left: auto;
-  margin-right: auto; */
   object-position: center;
+}
+
+#chinook {
+  z-index: 10;
+  float: left;
+  margin-right: 15px;
+  border: 4px solid white;
+  border-radius: 3px;
+}
+
+#fish {
+  float: right;
+  margin-left: 15px;
+  border: 4px solid white;
+  border-radius: 3px;
 }
 
 table {

@@ -1,8 +1,34 @@
 'use strict';
 
-var salesTable = document.getElementById('salesTable');
 var storeList = [];
 var storeHours = ['06am', '07pm']; // all single-digit hours must be preceded by '0' (e.g. '08am', '01pm')
+
+function Store(name = '', minHourlyCustomers = 0, maxHourlyCustomers = 0, avgCustomerCookies = 0) {
+  this.name = name;
+  this.minHourlyCustomers = minHourlyCustomers;
+  this.maxHourlyCustomers = maxHourlyCustomers;
+  this.avgCustomerCookies = avgCustomerCookies;
+  this.hourlyCookieSales = [];
+  this.totalCookieSales = 0;
+  storeList.push(this);
+}
+
+Store.prototype.salesDataRender = function (store, hours) {
+  getCookieSalesHourly(store, hours);
+  var salesRow = document.createElement('tr');
+  var storeName = document.createElement('th');
+  storeName.textContent = this.name;
+  salesRow.appendChild(storeName);
+  for (var i = 0; i < this.hourlyCookieSales.length; i++) {
+    var hourlySales = document.createElement('td');
+    hourlySales.textContent = this.hourlyCookieSales[i];
+    salesRow.appendChild(hourlySales);
+  }
+  var dailyTotalSales = document.createElement('td');
+  dailyTotalSales.textContent = this.totalCookieSales;
+  salesRow.appendChild(dailyTotalSales);
+  salesTable.appendChild(salesRow);
+};
 
 new Store('Seattle', 23, 65, 6.3);
 new Store('Tokyo', 3, 24, 1.2);
@@ -56,10 +82,6 @@ function getHours(hours) {
   return hoursList;
 }
 
-function getCustomersHourly(store) {
-  return Math.floor(Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1) + store.minHourlyCustomers);
-}
-
 function getCookieSalesHourly(store, hours) {
   for (var i = 0; i < hours.length; i++) {
     var hourCookieSales = Math.round(getCustomersHourly(store) * store.avgCustomerCookies);
@@ -68,32 +90,9 @@ function getCookieSalesHourly(store, hours) {
   }
 }
 
-function Store(name = '', minHourlyCustomers = 0, maxHourlyCustomers = 0, avgCustomerCookies = 0) {
-  this.name = name;
-  this.minHourlyCustomers = minHourlyCustomers;
-  this.maxHourlyCustomers = maxHourlyCustomers;
-  this.avgCustomerCookies = avgCustomerCookies;
-  this.hourlyCookieSales = [];
-  this.totalCookieSales = 0;
-  storeList.push(this);
+function getCustomersHourly(store) {
+  return Math.floor(Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1) + store.minHourlyCustomers);
 }
-
-Store.prototype.salesDataRender = function (store, hours) {
-  getCookieSalesHourly(store, hours);
-  var salesRow = document.createElement('tr');
-  var storeName = document.createElement('th');
-  storeName.textContent = this.name;
-  salesRow.appendChild(storeName);
-  for (var i = 0; i < this.hourlyCookieSales.length; i++) {
-    var hourlySales = document.createElement('td');
-    hourlySales.textContent = this.hourlyCookieSales[i];
-    salesRow.appendChild(hourlySales);
-  }
-  var dailyTotalSales = document.createElement('td');
-  dailyTotalSales.textContent = this.totalCookieSales;
-  salesRow.appendChild(dailyTotalSales);
-  salesTable.appendChild(salesRow);
-};
 
 function hourlyTabulationRender(hours) {
   var hoursRow = document.createElement('tr');
@@ -149,5 +148,5 @@ function populateTable() {
   hourlyTotalsRender(operatingHours);
   grandTotalRender();
 }
-
+var salesTable = document.getElementById('salesTable');
 populateTable();
