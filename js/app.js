@@ -1,8 +1,7 @@
 'use strict';
 
-var hoursChange = document.getElementById('hoursinput');
-
 var submitStore = document.getElementById('entryform');
+var hoursChange = document.getElementById('hoursinput');
 var salesTable = document.getElementById('salesTable');
 var storeList = [];
 var storeHours = ['06am', '07pm']; // all single-digit hours must be preceded by '0' (e.g. '08am', '01pm')
