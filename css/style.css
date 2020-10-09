@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
 body {
-  background-color: pink;
+  background-color: rgb(255, 208, 215);
   z-index: 10;
   margin: 0px auto 0px auto;
   position: relative;
@@ -17,7 +19,8 @@ header {
 }
 
 .highlight {
-  color: blue;
+  color: salmon;
+  font-family: Lobster, open-sans;
 }
 
 nav ul{
