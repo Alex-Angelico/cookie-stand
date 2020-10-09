@@ -165,11 +165,11 @@ var addStore = function (event) {
 
 var hoursControl = function (event) {
   event.preventDefault();
-  storeHours = [event.target.openinghour.value, event.target.closinghour.value];
-  // var operatingHours = getHours(storeHours);
+  // storeHours = [event.target.openinghour.value, event.target.closinghour.value];
   while (salesTable.firstChild) {
     salesTable.removeChild(salesTable.firstChild);
   }
+  storeHours = [event.target.openinghour.value, event.target.closinghour.value];
   populateTable();
 };
 
