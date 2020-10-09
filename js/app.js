@@ -1,5 +1,9 @@
 'use strict';
 
+var hoursChange = document.getElementById('hoursinput');
+
+var submitStore = document.getElementById('entryform');
+var salesTable = document.getElementById('salesTable');
 var storeList = [];
 var storeHours = ['06am', '07pm']; // all single-digit hours must be preceded by '0' (e.g. '08am', '01pm')
 
@@ -52,7 +56,7 @@ function getHours(hours) {
   }
   var timeHour;
   for (var i = 0; i < totalHours; i++) {
-    if (openDayHalf === 'am') {
+    if (openDayHalf === 'am' || String(firstHour + openDayHalf) === '12pm') {
       if ((firstHour + i) <= 11) {
         timeHour = `${firstHour + i}:00am`;
       } else if ((firstHour + i) === 12) {
@@ -64,7 +68,7 @@ function getHours(hours) {
       } else if ((firstHour + i) > 23) {
         timeHour = `${(firstHour + i) - 24}:00am`;
       }
-    } else if (openDayHalf === 'pm') {
+    } else if (openDayHalf === 'pm' || String(firstHour + openDayHalf) === '12am') {
       if ((firstHour + i) <= 11) {
         timeHour = `${firstHour + i}:00pm`;
       } else if ((firstHour + i) === 12) {
@@ -148,5 +152,29 @@ function populateTable() {
   hourlyTotalsRender(operatingHours);
   grandTotalRender();
 }
-var salesTable = document.getElementById('salesTable');
+
+var addStore = function (event) {
+  event.preventDefault();
+  var hourlyTotals = salesTable.lastChild;
+  salesTable.removeChild(hourlyTotals);
+  var operatingHours = getHours(storeHours);
+  var newStore = new Store(event.target.storename.value, event.target.minhourcustomers.value, event.target.maxhourcustomers.value, event.target.avgcookiescustomer.value);
+  newStore.salesDataRender(newStore, operatingHours);
+  hourlyTotalsRender(operatingHours);
+  grandTotalRender();
+};
+
+var hoursControl = function (event) {
+  event.preventDefault();
+  storeHours = [event.target.openinghour.value, event.target.closinghour.value];
+  // var operatingHours = getHours(storeHours);
+  while (salesTable.firstChild) {
+    salesTable.removeChild(salesTable.firstChild);
+  }
+  populateTable();
+};
+
 populateTable();
+
+submitStore.addEventListener('submit', addStore);
+hoursChange.addEventListener('submit', hoursControl);

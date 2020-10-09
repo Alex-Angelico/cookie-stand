@@ -164,6 +164,7 @@ table {
   background-color: blue;
   font-family: Arial, Helvetica, sans-serif;
   color: greenyellow;
+  margin-top: 30px;
 }
 
 td {
@@ -174,6 +175,26 @@ td {
 td:hover {
   background-color: rgb(185, 182, 182);
   text-align: center;
+}
+
+.sales {
+  display: inline-block;
+}
+
+fieldset {
+  width: 300px;
+  display: block;
+}
+
+fieldset label {
+  display: block;
+}
+
+input#submit {
+  margin-top: 15px;
+  padding: 5px;
+  width: 100px;
+  display: block;
 }
 
 footer {
