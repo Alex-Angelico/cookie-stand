@@ -11,7 +11,37 @@
         <h1><span class="highlight">Salmon Cookies Sales Data</span></h1>
     </header>
     <main>
-        <section>
+        <section class="sales">
+            <form id="entryform">
+                <fieldset>
+                    <h3>New Store Submission Form</h3>
+                    <label>Store name:</label>
+                    <input id='store-name' type='text' name='storename'>
+                    <label>Minimum hourly customers:</label>
+                    <input id='min-hour-customers' type='text' name='minhourcustomers'>
+                    <label>Maximum hourly customers:</label>
+                    <input id='max-hour-customers' type='text' name='maxhourcustomers'>
+                    <label>Average cookies purchased per customer:</label>
+                    <input id='avg-cookies-customer' type='text' name='avgcookiescustomer'>
+                    <input id='submit' type='submit' name='submit' value='Submit'>
+                </fieldset>
+            </form>
+        </section>
+        <section class="sales">
+            <form id="hoursinput">
+                <fieldset>
+                    <h3>Change Operating Hours</h3>
+                    <h4>All single-digit hours must be preceded by '0' (e.g. '08am', '01pm')</h4>
+                    <label>Opening hour:</label>
+                    <input id="opening-hour" type='text' name='openinghour'>
+                    <label>Closing hour:</label>
+                    <input id="closing-hour" type='text' name='closinghour'>
+                    <input id='submit' type='submit' name='submit' value='Submit'>
+                </fieldset>
+            </form>
+        </section>
+        <section class="sales">
+            <h3>Daily Sales Data</h3>
             <table id="salesTable"></table>
         </section>
     </main>

@@ -15,3 +15,4 @@ Created: 20201005
 [eval()](https://stackoverflow.com/questions/6737840/call-javascript-object-method-with-a-variable)  
 [Reference link for downloading Lobster from Google Fonts](https://forum.freecodecamp.org/t/import-a-google-font-lobster/232226)  
 [Importing custom fonts from URLs via CSS](https://www.w3docs.com/snippets/css/how-to-import-google-fonts-in-css-file.html)  
+[DOM Deletion Loop](https://coderwall.com/p/nygghw/don-t-use-innerhtml-to-empty-dom-elements)  
