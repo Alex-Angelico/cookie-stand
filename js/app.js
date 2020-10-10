@@ -55,7 +55,7 @@ function getHours(hours) {
   }
   var timeHour;
   for (var i = 0; i < totalHours; i++) {
-    if (openDayHalf === 'am' || String(firstHour + openDayHalf) === '12pm') {
+    if ((openDayHalf === 'am' && firstHour !== 12) || String(firstHour + openDayHalf) === '12pm') {
       if ((firstHour + i) <= 11) {
         timeHour = `${firstHour + i}:00am`;
       } else if ((firstHour + i) === 12) {
@@ -67,7 +67,7 @@ function getHours(hours) {
       } else if ((firstHour + i) > 23) {
         timeHour = `${(firstHour + i) - 24}:00am`;
       }
-    } else if (openDayHalf === 'pm' || String(firstHour + openDayHalf) === '12am') {
+    } else if ((openDayHalf === 'pm' && firstHour !== 12) || String(firstHour + openDayHalf) === '12am') {
       if ((firstHour + i) <= 11) {
         timeHour = `${firstHour + i}:00pm`;
       } else if ((firstHour + i) === 12) {
@@ -94,7 +94,7 @@ function getCookieSalesHourly(store, hours) {
 }
 
 function getCustomersHourly(store) {
-  return Math.floor(Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1) + store.minHourlyCustomers);
+  return Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1) + store.minHourlyCustomers;
 }
 
 function hourlyTabulationRender(hours) {
@@ -165,11 +165,10 @@ var addStore = function (event) {
 
 var hoursControl = function (event) {
   event.preventDefault();
-  // storeHours = [event.target.openinghour.value, event.target.closinghour.value];
+  storeHours = [event.target.openinghour.value, event.target.closinghour.value];
   while (salesTable.firstChild) {
     salesTable.removeChild(salesTable.firstChild);
   }
-  storeHours = [event.target.openinghour.value, event.target.closinghour.value];
   populateTable();
 };
 
